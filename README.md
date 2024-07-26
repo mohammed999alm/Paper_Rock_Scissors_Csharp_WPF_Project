@@ -1,1 +1,3 @@
-# Paper_Rock_Scissors
+# Author Mohammed Almislaty
+# Paper Rock Scissors Project
+# Using C#.Net And Windows Forms 
