@@ -102,6 +102,7 @@ namespace Paper_Rock_Scissors
 
                 case "2 minutes":
                     countTimer = 2 * 60;
+                    //countTimer = 65;//For test purposes.
                     timer1.Enabled = true;
                     break;
 
