@@ -101,8 +101,7 @@ namespace Paper_Rock_Scissors
 
 
                 case "2 minutes":
-                    //countTimer = 2 * 60;
-                    countTimer = 65;
+                    countTimer = 2 * 60;
                     timer1.Enabled = true;
                     break;
 
