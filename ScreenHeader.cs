@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static Paper_Rock_Scissors.Form3;
 
@@ -22,7 +23,10 @@ namespace Paper_Rock_Scissors
         int roundLimit = 0;
 
         int round = 0;
-        
+
+        System.Media.SoundPlayer playerSound = new System.Media.SoundPlayer("Counter.wav");
+
+        int playCounter = 0;
         protected void increaseRound() 
         {
             
@@ -87,6 +91,12 @@ namespace Paper_Rock_Scissors
                     lblTimer.Show();
                     break;
 
+
+                case "2 minutes":
+                    countTimer = 2 * 60;
+                    timer1.Enabled = true;
+                    break;
+
                 case "5 minutes":
                     countTimer = 5 * 60;
                     timer1.Enabled = true;
@@ -124,6 +134,7 @@ namespace Paper_Rock_Scissors
             timer1.Enabled = true;
         }
 
+        
         protected void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -168,6 +179,15 @@ namespace Paper_Rock_Scissors
 
             else 
             {
+
+
+                if (playCounter == 0)
+                {
+                    playerSound.Play();
+                    playCounter++;
+                }
+           
+                
                 lblTimer.ForeColor = Color.Red;
                 lblTimer.Text = minutes.ToString("D2") + ":" + seconds.ToString("D2");
             }

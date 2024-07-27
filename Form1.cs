@@ -8,7 +8,7 @@ namespace Paper_Rock_Scissors
     {
 
         byte choiceNumberTimeLimits = 0;
-        string[] choicesTimeLimits = { "Unlimited", "5 Minutes", "10 Minutes", "15 Minutes" };
+        string[] choicesTimeLimits = { "Unlimited", "2 Minutes", "5 Minutes", "10 Minutes", "15 Minutes" };
 
         byte choiceNumberRounds = 0;
 
