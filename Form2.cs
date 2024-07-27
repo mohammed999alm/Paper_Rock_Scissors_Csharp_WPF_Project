@@ -39,6 +39,8 @@ namespace Paper_Rock_Scissors
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             form3.Close();
+
+            base.playerSound.Stop();
             
             Form1 frm = new Form1();
 

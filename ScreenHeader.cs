@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Paper_Rock_Scissors.Properties;
+using System;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 using static Paper_Rock_Scissors.Form3;
 
@@ -9,9 +11,12 @@ namespace Paper_Rock_Scissors
 {
     public partial class ScreenHeader : Form
     {
+
+        protected System.Media.SoundPlayer playerSound;
         public ScreenHeader() 
         {
             InitializeComponent();
+            playerSound = new System.Media.SoundPlayer(audioPath);
         }
 
         int countTimer = 0;
@@ -24,8 +29,11 @@ namespace Paper_Rock_Scissors
 
         int round = 0;
 
-        System.Media.SoundPlayer playerSound = new System.Media.SoundPlayer("Counter.wav");
+        static string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
 
+        string audioPath = Path.Combine(projectDirectory, "Paper_Rock_Scissors", "Audio", "Counter.wav");
+
+    
         int playCounter = 0;
         protected void increaseRound() 
         {
@@ -93,7 +101,8 @@ namespace Paper_Rock_Scissors
 
 
                 case "2 minutes":
-                    countTimer = 2 * 60;
+                    //countTimer = 2 * 60;
+                    countTimer = 65;
                     timer1.Enabled = true;
                     break;
 
