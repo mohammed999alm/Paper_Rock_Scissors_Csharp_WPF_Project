@@ -17,6 +17,7 @@ namespace Paper_Rock_Scissors
         {
             InitializeComponent();
             playerSound = new System.Media.SoundPlayer(audioPath);
+
         }
 
         int countTimer = 0;
