@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EndGameScreen));
             this.lblPlayer = new System.Windows.Forms.Label();
             this.lblPlayerPoints = new System.Windows.Forms.Label();
             this.lblComputer = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.lblDrawPoints = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblWinner = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPlayer
@@ -127,12 +130,23 @@
             this.lblWinner.TabIndex = 7;
             this.lblWinner.Text = "Player";
             // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(569, 302);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(244, 232);
+            this.axWindowsMediaPlayer1.TabIndex = 8;
+            this.axWindowsMediaPlayer1.Visible = false;
+            // 
             // EndGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1023, 535);
+            this.ClientSize = new System.Drawing.Size(1023, 528);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.lblWinner);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblDrawPoints);
@@ -141,9 +155,14 @@
             this.Controls.Add(this.lblComputer);
             this.Controls.Add(this.lblPlayerPoints);
             this.Controls.Add(this.lblPlayer);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1041, 575);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1041, 575);
             this.Name = "EndGameScreen";
             this.Text = "EndGameScreen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EndGameScreen_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +178,6 @@
         private System.Windows.Forms.Label lblDrawPoints;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblWinner;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

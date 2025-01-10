@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,12 @@ namespace Paper_Rock_Scissors
         }
 
 
+        static string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+
+        string videoPath = Path.Combine(projectDirectory, "Paper_Rock_Scissors", "Videos", "You're Broke.mp4");
         private void decideWinner(stGameResult result) 
         {
+            
             if (result.playerWonCounter > result.computerrWonCounter)
             {
                 lblWinner.Text = "Winner : Player Won The Game With Final Result :" + result.playerWonCounter.ToString();
@@ -36,6 +41,17 @@ namespace Paper_Rock_Scissors
             else if (result.playerWonCounter < result.computerrWonCounter)
             {
                 lblWinner.Text = "Winner : Computer Won The Game With Final Result :" + result.computerrWonCounter.ToString();
+
+                if (File.Exists(videoPath))
+                {
+                    axWindowsMediaPlayer1.Visible = true;
+
+                    axWindowsMediaPlayer1.URL = videoPath;
+
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                }
+
+                axWindowsMediaPlayer1.PlayStateChange += axWindowsMediaPlayer1_PlayStateChange;
             }
 
             else 
@@ -57,7 +73,19 @@ namespace Paper_Rock_Scissors
 
         private void EndGameScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            axWindowsMediaPlayer1.close();
+
             Form2.exitGame("exit");
+        }
+
+        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+
+            if (e.newState == (int)WMPLib.WMPPlayState.wmppsStopped) 
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
         }
     }
 }
